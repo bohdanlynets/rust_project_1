@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Classlink</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: black;
+        }
+        canvas {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: black;
+            /* This forces the canvas to sit correctly on top of the body layer */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        canvas:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="glcanvas" tabindex="1"></canvas>
+    
+    <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
+    <script>
+        load("game.wasm");
+
+        window.addEventListener("load", function() {
+            const canvas = document.getElementById("glcanvas");
+            if (canvas) {
+                canvas.focus();
+                document.addEventListener("click", function() {
+                    canvas.focus();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
